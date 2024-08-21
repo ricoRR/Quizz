@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/charts.css/dist/charts.min.css">
+<div id="datasets-example-2">
+    <ul class="charts-css legend legend-inline legend-square">
+        <li> last year </li>
+        <li> last month </li>
+        <li> last week </li>
+        <li> lash day </li>
+    </ul> 
+    <table class="charts-css column multiple show-labels data-spacing-10 datasets-spacing-1">
+    <caption> Graph  </caption>
+     <tbody>
+     <tr>
+     <th scope="row"> Number of quizz</th> 
+        <td style="--size: calc( {{data.year.quizz}} / {{data.total.quizz}} );"><span class="data"> {{data.year.quizz}} </span></td>
+        <td style="--size: calc( {{data.month.quizz}} / {{data.total.quizz}} );"><span class="data"> {{data.month.quizz}} </span></td> 
+        <td style="--size: calc( {{data.week.quizz}} / {{data.total.quizz}} );"><span class="data"> {{data.week.quizz}} </span></td>
+        <td style="--size: calc( {{data.day.quizz}} / {{data.total.quizz}});"><span class="data"> {{data.day.quizz}} </span></td> 
+    </tr> 
+    <tr>
+    <th scope="row"> Number of visitor </th> 
+    <td style="--size: calc( {{data.year.visitors}} / {{data.total.visitors}} );"><span class="data"> {{data.year.visitors}} </span></td> 
+    <td style="--size: calc( {{data.month.visitors}} / {{data.total.visitors}}  );"><span class="data"> {{data.month.visitors}} </span></td>
+    <td style="--size: calc( {{data.week.visitors}} / {{data.total.visitors}}  );"><span class="data"> {{data.week.visitors}} </span></td>
+    <td style="--size: calc( {{data.day.visitors}} / {{data.total.visitors}}  );"><span class="data"> {{data.day.visitors}} </span></td>
+    </tr>
+    </tbody>
+    </table>
+</div>

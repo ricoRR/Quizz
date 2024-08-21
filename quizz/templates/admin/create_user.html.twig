@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit the user</title>
+</head>
+<body>
+     {{ form_start(form) }}
+
+    <div>
+        {{ form_label(form.new_mail) }}
+        {{ form_widget(form.new_mail) }}
+        {{ form_errors(form.new_mail) }}
+    </div>
+
+    <div>
+        {{ form_label(form.plainPassword) }}
+        {{ form_widget(form.plainPassword) }}
+        {{ form_errors(form.plainPassword) }}
+    </div>
+
+   
+
+    <div>
+        <button type="submit">create User</button>
+    </div>
+
+    {{ form_end(form) }}
+</body>
+</html>

@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+<section class="flex flex-col md:flex-row h-screen items-center">
+
+    <div class="bg-blue-600 hidden lg:block w-full md:w-1/2 xl:w-2/3 h-screen">
+        <img src="https://images.unsplash.com/photo-1444313431167-e7921088a9d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1441&q=100" alt="" class="w-full h-full object-cover">
+    </div>
+
+    <div class="bg-white w-full md:max-w-md lg:max-w-full md:mx-auto md:mx-0 md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12 flex items-center justify-center">
+        <div class="w-full">
+
+            <h1 class="text-xl md:text-2xl font-bold leading-tight mt-12">Register to MyQuizz</h1>
+            <a href='/login'>login</a>
+            {% for flash_error in app.flashes('verify_email_error') %}
+                <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+            {% endfor %}
+
+            {{ form_start(registrationForm, {'attr': {'class': 'mt-6'}}) }}
+
+            <div>
+                {{ form_label(registrationForm.email, 'Email Address', {'label_attr': {'class': 'block text-gray-700'}}) }}
+                {{ form_widget(registrationForm.email, {'attr': {'class': 'w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none', 'placeholder': 'Enter Email Address', 'autocomplete': 'email'}}) }}
+                {{ form_errors(registrationForm.email) }}
+            </div>
+
+            <div class="mt-4">
+                {{ form_label(registrationForm.plainPassword, 'Password', {'label_attr': {'class': 'block text-gray-700'}}) }}
+                {{ form_widget(registrationForm.plainPassword, {'attr': {'class': 'w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none', 'placeholder': 'Enter Password'}}) }}
+                {{ form_errors(registrationForm.plainPassword) }}
+            </div>
+
+            <div class="mt-4">
+                {{ form_label(registrationForm.agreeTerms, 'Agree to terms', {'label_attr': {'class': 'inline-block text-gray-700'}}) }}
+                {{ form_widget(registrationForm.agreeTerms, {'attr': {'class': ''}}) }}
+                {{ form_errors(registrationForm.agreeTerms) }}
+            </div>
+
+            <button type="submit" class="w-full block bg-blue-500 hover:bg-blue-400 focus:bg-blue-400 text-white font-semibold rounded-lg px-4 py-3 mt-6">Register</button>
+
+            {{ form_end(registrationForm) }}
+        </div>
+    </div>
+</section>
+{% endblock %}

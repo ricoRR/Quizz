@@ -1,0 +1,47 @@
+
+{% block title %}User Stats{% endblock %}
+
+{% block body %}
+<h1>User Stats - Last Month Logins</h1>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>Last Login</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.last_login }}</td>
+                <td><a href='/sendemail/{{user.id}}'>send email<a/></td>
+
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<h1>User Stats - Last Month Not Logins</h1>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>Last Login</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users2 %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.last_login }}</td>
+                <td><a href='/sendemail/{{user.id}}'>send email<a/></td>
+
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,21 @@
+
+
+{% block body %}
+
+
+<div>
+
+    <div>
+        <a href="/">Home</a>
+    </div>
+
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <p>Email: {{ app.user.email }}</p>
+        <a href='/reset-password'>Change the password<a>
+        <a href='/change_email'>Change the email<a>
+        <a href='/logout'>logout<a>
+    {% endif %}
+
+  
+</div>
+{% endblock %}

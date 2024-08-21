@@ -1,0 +1,25 @@
+
+{% block title %}History{% endblock %}
+
+{% block body %}
+    <h1>History</h1>
+<a href="/">back home</a>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ history.id }}</td>
+            </tr>
+            <tr>
+                <th>Score</th>
+                <td>{{ history.result }}</td>
+            </tr>
+            <tr>
+                <th>Answer</th>
+                <td>{{ history.answer|join(', ') }}</td>
+            </tr>
+            
+        </tbody>
+    </table>
+{% endblock %}

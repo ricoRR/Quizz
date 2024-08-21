@@ -1,0 +1,40 @@
+
+{% block title %}home{% endblock %}
+
+{% block body %}
+
+
+    <h1>The quizzs</h1>
+
+        <div>
+            <a href="/user">User</a><br>
+            <a href="/login">Login</a><br>
+            <a href="/register">Register</a><br>
+            <a href="/history">History</a><br>
+            {% if app.user.roles is defined and 'ROLE_ADMIN'  in app.user.roles %}
+                <a href="/all_users">all_users</a>
+                <a href="/stats">Stats</a>
+                <a href="/graph">Graph</a>
+            {% endif %}
+            {% if app.user %}
+            <div class="mb-3">
+                You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+            </div>
+            {% endif %}
+            <br><br>
+        </div>
+
+        {% for cat in categorie %}
+            <div class='flex flex-row items-center border-1 borer-gray-500 p-4' >
+                <a href="/categorie/{{cat.id}}">{{cat.name}}<a/>
+                {% if app.user.roles is defined and 'ROLE_ADMIN' in app.user.roles %}
+                    <a href="/categorie/edit/{{cat.id}}">Edit</a>
+                    <a href="/categorie/sure_delete/{{cat.id}}">Delete</a>
+                {% endif %}  
+            </div>
+        {% endfor %}
+
+        {% if app.user.roles is defined and 'ROLE_ADMIN'  in app.user.roles %}
+            <a href="/categorie_create">Create a categorie</a>
+        {% endif %} 
+{% endblock %}

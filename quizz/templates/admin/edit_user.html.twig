@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit the user</title>
+</head>
+<body>
+     {{ form_start(form) }}
+
+    <div>
+        {{ form_label(form.new_mail) }}
+        {{ form_widget(form.new_mail) }}
+        {{ form_errors(form.new_mail) }}
+    </div>
+
+    <div>
+        {{ form_label(form.plainPassword) }}
+        {{ form_widget(form.plainPassword) }}
+        {{ form_errors(form.plainPassword) }}
+    </div>
+
+    <div>
+        {{ form_label(form.verify) }}
+        {{ form_widget(form.verify) }}
+        {{ form_errors(form.verify) }}
+    </div>
+
+    <div>
+        <button type="submit">Save</button>
+    </div>
+
+    {{ form_end(form) }}
+</body>
+</html>

@@ -1,0 +1,39 @@
+
+{% block title %}Create Category{% endblock %}
+
+{% block body %}
+    <h1>Create Category</h1>
+
+    {{ form_start(form) }}
+
+    <div class="form-group">
+        {{ form_label(form.name, 'Category Name', {'label_attr': {'class': 'custom-label-class'}}) }}
+        {{ form_widget(form.name, {'attr': {'class': 'form-control custom-input-class'}}) }}
+        {{ form_errors(form.name) }}
+    </div>
+
+    <h2>Questions</h2>
+    {% for questionForm in form.questions %}
+        <div class="question form-group">
+            {{ form_label(questionForm.question, 'Question', {'label_attr': {'class': 'custom-label-class'}}) }}
+            {{ form_widget(questionForm.question, {'attr': {'class': 'form-control custom-input-class'}}) }}
+            {{ form_errors(questionForm.question) }}
+
+            <h3>Responses</h3>
+            {% for responseForm in questionForm.responses %}
+                <div class="response form-group">
+                    {{ form_label(responseForm.reponse, 'Response', {'label_attr': {'class': 'custom-label-class'}}) }}
+                    {{ form_widget(responseForm.reponse, {'attr': {'class': 'form-control custom-input-class'}}) }}
+                    {{ form_errors(responseForm.reponse) }}
+                    
+                    {{ form_label(responseForm.reponse_expected, 'Expected Response', {'label_attr': {'class': 'custom-label-class'}}) }}
+                    {{ form_widget(responseForm.reponse_expected, {'attr': {'class': 'form-check-input custom-input-class'}}) }}
+                    {{ form_errors(responseForm.reponse_expected) }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+    
+    <button class="btn btn-primary">Create Category</button>
+    {{ form_end(form) }}
+{% endblock %}

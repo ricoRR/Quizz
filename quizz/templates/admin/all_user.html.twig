@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Users</title>
+</head>
+<body>
+    <h1>All Users</h1>
+
+    <div>
+        <a href="/">Home</a>
+    </div>
+    
+    <ul>
+        {% for user in all_user %}
+            <li>
+                {{ user.email }}
+                <a href="/user/edit/{{ user.id }}">edit</a>
+                <a href="/user_delete/{{ user.id }}">delete</a>
+                {% if 'ROLE_ADMIN' not in user.roles %}
+                    <a href="/pass_user_admin_verification/{{ user.id }}">Pass admin</a>
+                {% endif %}  
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a href='/user/create'>Create a user </a>
+</body>
+</html>

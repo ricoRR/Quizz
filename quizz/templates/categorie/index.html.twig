@@ -1,0 +1,23 @@
+
+{% block title %}Quiz - {{ categorie.name }}{% endblock %}
+
+{% block body %}
+    <h1>{{ categorie.name }}</h1>
+
+    <form method="post">
+        {% for question in categorie.questions %}
+            <div class="question-block">
+                <strong>{{ question.question }}</strong><br>
+                {% for response in question.responses %}
+                    <label>
+                        <input type="radio" name="question_{{ question.id }}" value="{{ response.id }}">
+                        {{ response.reponse }}
+                    </label><br>
+                {% endfor %}
+            </div>
+        {% endfor %}
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}
+
+
